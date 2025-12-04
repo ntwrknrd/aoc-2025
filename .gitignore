@@ -1,0 +1,31 @@
+# OS files
+.DS_Store
+
+# Editor/IDE
+aoc-2025.code-workspace
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Claude Code
+.claude/
+*-claude-export.txt
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Go
+bin/
+
+# Rust
+target/
+Cargo.lock
+
+# Zig
+zig-cache/
+.zig-cache/
+zig-out/
