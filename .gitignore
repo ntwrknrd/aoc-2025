@@ -26,6 +26,7 @@ target/
 Cargo.lock
 
 # Zig
-zig-cache/
+.zig-cache
 .zig-cache/
+zig-cache/
 zig-out/

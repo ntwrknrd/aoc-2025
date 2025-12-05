@@ -52,3 +52,12 @@ git worktree list --porcelain | grep '^worktree' | grep -v '/aoc-2025$' | cut -d
 # Push all branches to remote
 git push origin --all
 ```
+
+### Committing across all worktrees
+
+If you have changes in multiple language worktrees and want to commit them all at once:
+
+```bash
+# Stage and commit changes in all language worktrees
+git worktree list --porcelain | grep '^worktree' | grep -v '/aoc-2025$' | cut -d' ' -f2 | xargs -I{} sh -c 'git -C {} add -A && git -C {} commit -m "Your commit message" || true'
+```
