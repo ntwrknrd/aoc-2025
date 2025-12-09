@@ -13,7 +13,7 @@ pub fn build(b: *std.Build) void {
 
     // Create an executable for each day
     // inline for is a comptime loop - it unrolls at compile time
-    inline for (.{ "day01", "day02", "day03", "day04", "day05", "day06", "day07", "day08" }) |day| {
+    inline for (.{ "day01", "day02", "day03", "day04", "day05", "day06", "day07", "day08", "day09" }) |day| {
         // Zig 0.15 changed the API - now we pass root_module instead of root_source_file
         const exe = b.addExecutable(.{
             .name = day,
