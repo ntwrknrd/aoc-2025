@@ -66,7 +66,10 @@ fn main() {
     let (mut ranges, ingredients) = load_input("input.txt");
 
     // Part 1: count fresh ingredients (those in ANY range)
-    let part1 = ingredients.iter().filter(|&&id| in_range(id, &ranges)).count();
+    let part1 = ingredients
+        .iter()
+        .filter(|&&id| in_range(id, &ranges))
+        .count();
     println!("Part 1: {}", part1);
 
     // Part 2: count ALL unique IDs covered by merged ranges

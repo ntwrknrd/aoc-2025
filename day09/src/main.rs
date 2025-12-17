@@ -61,8 +61,14 @@ fn solve(tiles: &[Point]) -> i64 {
 
     // collect unique candidates using HashSet
     let candidates: Vec<Point> = [
-        min_x_pt, max_x_pt, min_y_pt, max_y_pt,
-        min_sum_pt, max_sum_pt, min_diff_pt, max_diff_pt,
+        min_x_pt,
+        max_x_pt,
+        min_y_pt,
+        max_y_pt,
+        min_sum_pt,
+        max_sum_pt,
+        min_diff_pt,
+        max_diff_pt,
     ]
     .iter()
     .copied()
@@ -115,7 +121,12 @@ fn solve_part2(tiles: &[Point]) -> i64 {
         .collect();
 
     // BTreeSet gives us sorted unique y-values directly
-    let all_ys: Vec<i64> = tiles.iter().map(|p| p.y).collect::<BTreeSet<_>>().into_iter().collect();
+    let all_ys: Vec<i64> = tiles
+        .iter()
+        .map(|p| p.y)
+        .collect::<BTreeSet<_>>()
+        .into_iter()
+        .collect();
     let k = all_ys.len();
 
     // compute left[y] and right[y] using chained iterators (no intermediate Vec)
@@ -128,7 +139,9 @@ fn solve_part2(tiles: &[Point]) -> i64 {
                 .filter(|e| e.y_lo <= y && y <= e.y_hi)
                 .map(|e| e.x)
                 .chain(tiles.iter().filter(|p| p.y == y).map(|p| p.x))
-                .fold((i64::MAX, i64::MIN), |(min, max), x| (min.min(x), max.max(x)))
+                .fold((i64::MAX, i64::MIN), |(min, max), x| {
+                    (min.min(x), max.max(x))
+                })
         })
         .unzip();
 
@@ -150,7 +163,9 @@ fn solve_part2(tiles: &[Point]) -> i64 {
     for j in 1..log_k {
         let half = 1 << (j - 1);
         let step = half << 1;
-        if step > k { continue; }
+        if step > k {
+            continue;
+        }
 
         for i in 0..=(k - step) {
             sparse[idx(0, j, i)] = sparse[idx(0, j - 1, i)].max(sparse[idx(0, j - 1, i + half)]);

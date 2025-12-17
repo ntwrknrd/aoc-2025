@@ -11,9 +11,14 @@ fn count_neighbors(grid: &[Vec<u8>], row: usize, col: usize) -> usize {
     // we use isize for deltas because we need to subtract
     // usize can't be negative, so we'd panic on 0 - 1
     let deltas: [(isize, isize); 8] = [
-        (-1, -1), (-1, 0), (-1, 1),
-        (0, -1),           (0, 1),
-        (1, -1),  (1, 0),  (1, 1),
+        (-1, -1),
+        (-1, 0),
+        (-1, 1),
+        (0, -1),
+        (0, 1),
+        (1, -1),
+        (1, 0),
+        (1, 1),
     ];
 
     for (dr, dc) in deltas {

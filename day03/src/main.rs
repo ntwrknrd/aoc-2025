@@ -55,7 +55,7 @@ fn max_joltage_k(bank: &str, k: usize) -> u64 {
 
     for i in 0..k {
         let remaining = k - i - 1; // digits still needed after this one
-        let end = n - remaining;   // can't pick past here
+        let end = n - remaining; // can't pick past here
 
         // find the largest digit in [start, end)
         let mut best_pos = start;

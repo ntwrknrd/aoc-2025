@@ -1,0 +1,11 @@
+[package]
+name = "day10"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# regex for parsing the puzzle input format
+regex = "1"
+
+# nalgebra for matrix operations in part 2's linear algebra solver
+nalgebra = "0.33"

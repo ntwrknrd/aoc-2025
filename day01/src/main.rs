@@ -84,16 +84,15 @@ fn load_input(filename: &str) -> Vec<String> {
     // .lines() returns an iterator over lines
     // .map(|s| s.to_string()) converts each &str to owned String
     // .collect() gathers iterator results into a Vec
-    content
-        .lines()
-        .map(|s| s.to_string())
-        .collect()
+    content.lines().map(|s| s.to_string()).collect()
 }
 
 fn main() {
     // example from the puzzle
     // vec! is a macro that creates a Vec (like Python's list)
-    let example_input = vec!["L68", "L30", "R48", "L5", "R60", "L55", "L1", "L99", "R14", "L82"];
+    let example_input = vec![
+        "L68", "L30", "R48", "L5", "R60", "L55", "L1", "L99", "R14", "L82",
+    ];
 
     // Part 1
     println!("--- Part 1 ---");
